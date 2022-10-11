@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    hikari:
+      max-lifetime: 500000
+  mail:
+    host: smtp.163.com
+    username: xxx@163.com
+    address: xxx@163.com
+    password: xxx
+    default-encoding: utf-8
+    protocol: smtp
+    port: 25
+  level:
+    root: info
+    com.star: debug
+  file:
+    name: log/blog-dev.log
+
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+
+  #阿里云 OSS
+  #不同的服务器，地址不同
+aliyun:
+  oss:
+    file:
+      endpoint:  oss-cn-guangzhou.aliyuncs.com
+      keyid:  LTAI5tN8AaoSkXAaBKMsJTki
+      keysecret:  ACX0RoQXeqE5MBmpI3zjKBI7oyOU7r
+      #bucket可以在控制台创建，也可以使用java代码创建
+      bucketname: xiaozuanfeng-blog
+
+
