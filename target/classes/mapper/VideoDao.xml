@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.star.dao.VideoDao">
+
+    <!--查询视频管理列表结果集-->
+    <resultMap id="video" type="com.star.queryvo.VideoQo">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="status" column="status"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="com.star.entity.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <!--查询视频管理列表-->
+    <select id="getAllVideoQuery" resultMap="video">
+        select b.id,b.title,b.create_time,b.update_time,b.status,b.type_id,t.id,t.name
+        from myblog.t_video b
+                 left outer join myblog.t_type t on b.type_id = t.id
+        where t.type = 2
+        order by b.create_time desc
+    </select>
+
+</mapper>
