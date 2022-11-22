@@ -19,6 +19,9 @@ public interface TypeService {
     //根据id查询分类
     Type getType(Long id);
 
+    //根据类型获取分类
+    List<Type> getByType(Integer type);
+
     //查询所有分类
     List<Type> getAllType();
 

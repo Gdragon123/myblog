@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Description: 分类业务层接口实现类
@@ -32,6 +33,14 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public Type getType(Long id) {
         return typeDao.getType(id);
+    }
+
+    @Override
+    public List<Type> getByType(Integer type) {
+        if (Objects.nonNull(type)) {
+            return typeDao.getByTye(type);
+        }
+        return null;
     }
 
     @Transactional

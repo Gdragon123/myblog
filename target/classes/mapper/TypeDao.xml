@@ -49,4 +49,8 @@
         where t.id = b.type_id
     </select>
 
+    <select id="getByTye" resultType="com.star.entity.Type">
+        select * from myblog.t_type t where t.type = #{type}
+    </select>
+
 </mapper>

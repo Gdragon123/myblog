@@ -1,6 +1,8 @@
 package com.star.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.star.entity.User;
+import com.star.entity.Video;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -13,8 +15,8 @@ import org.springframework.stereotype.Repository;
  * @URL: https://onestar.newstar.net.cn/
  */
 @Mapper
-@Repository
-public interface UserDao {
+//@Repository
+public interface UserDao extends BaseMapper<User> {
     /**
      * @Description:
      * @Auther: ONESTAR

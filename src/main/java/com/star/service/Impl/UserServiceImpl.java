@@ -1,7 +1,10 @@
 package com.star.service.Impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.star.dao.UserDao;
+import com.star.dao.VideoDao;
 import com.star.entity.User;
+import com.star.entity.Video;
 import com.star.service.UserService;
 import com.star.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +18,10 @@ import org.springframework.stereotype.Service;
  * @URL: https://onestar.newstar.net.cn/
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+//    @Autowired
+//    private UserDao userDao;
 
     /**
      * @Description:
@@ -29,7 +32,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User checkUser(String username, String password) {
-        User user = userDao.findByUsernameAndPassword(username, MD5Utils.code(password));
+//        User user = userDao.findByUsernameAndPassword(username, MD5Utils.code(password));
+        User user = baseMapper.findByUsernameAndPassword(username, MD5Utils.code(password));
         return user;
     }
 }

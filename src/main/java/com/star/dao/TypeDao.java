@@ -38,4 +38,6 @@ public interface TypeDao {
     //查询所有分类
     List<Type> getAllTypeAndBlog();
 
+    //根据类型获取分类
+    List<Type> getByTye(Integer type);
 }
